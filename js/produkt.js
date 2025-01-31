@@ -3,7 +3,6 @@ let productContainer = document.querySelector(".productcon");
 fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     productContainer.innerHTML = `
          <img src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="" />
       <article>

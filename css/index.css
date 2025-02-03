@@ -21,7 +21,7 @@ header a {
   color: black;
 }
 
-main a {
+main a:not(:first-child) {
   padding: 10%;
   background-color: yellow;
   border: solid black 1px;
@@ -50,7 +50,7 @@ img {
     margin: 0 auto;
   }
 
-  main a {
+  main a:not(:first-child) {
     font-size: 160%;
   }
 

@@ -67,6 +67,13 @@ h4 {
   margin-bottom: 4%;
 }
 
+h5 {
+  margin: 0;
+}
+
+article div > div:last-child {
+}
+
 article div p {
   font-weight: normal;
   margin-top: 2%;

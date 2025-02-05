@@ -10,9 +10,6 @@ header {
 }
 
 nav ul {
-  /* margin: 10%;
-  padding: 0; */
-
   text-align: left;
 }
 
@@ -21,9 +18,14 @@ header a {
   color: black;
 }
 
+h2 {
+  text-align: center;
+  font-size: 6vw;
+}
+
 main a {
   padding: 10%;
-  background-color: yellow;
+  background-color: lightgrey;
   border: solid black 1px;
   display: block;
   text-decoration: none;
@@ -53,7 +55,9 @@ img {
   main a {
     font-size: 160%;
   }
+}
 
+@media (width >=1200px) {
   body {
     max-width: 1200px;
     margin: 0 auto;

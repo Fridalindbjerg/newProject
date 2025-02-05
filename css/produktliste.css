@@ -23,7 +23,6 @@ article {
   border: solid black 3px;
   text-decoration: none;
   color: black;
-  /* text-align: center; */
   font-weight: 600;
   border-radius: 10px;
   display: grid;
@@ -48,6 +47,16 @@ article img {
 
 img {
   max-width: 100%;
+}
+
+h2 a {
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  text-align: center;
+  font-size: 6vw;
 }
 
 h3 {
@@ -76,7 +85,7 @@ article div {
 .SaleLabel {
   padding: 5px;
   background-color: red;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .overWrite {
@@ -85,19 +94,18 @@ article div {
   text-decoration-thickness: 2px;
 }
 
-.isOnSale {
-  visibility: visible;
-}
-
 .udsolgt {
   filter: grayscale(100%);
+  background-color: lightgray;
 }
 
 @media (width >=500px) {
   main section {
     margin: 0 auto;
   }
+}
 
+@media (width >=1200px) {
   body {
     max-width: 1200px;
     margin: 0 auto;

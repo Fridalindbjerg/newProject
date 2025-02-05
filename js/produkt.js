@@ -16,9 +16,8 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
           <p>${data.id}</p>
           <div>
           <h5 class="${data.discount && "overWrite"}">${data.price},-</h5>
-          ${data.discount > 0 ? `<span class="SaleLabel isOnSale">-${data.discount}%</span>` : ""}
+          ${data.discount > 0 ? `<span class="SaleLabel ">-${data.discount}%</span>` : ""}
           ${data.discount > 0 ? `<h5>Now: ${data.price - data.discount},-</h5>` : ""}
-            <p class="${data.discount && "isOnSale"}>${data.discount}</p>
           </div>
         </div>
         <form action="/submit" method="post">

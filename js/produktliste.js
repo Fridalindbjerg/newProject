@@ -1,5 +1,9 @@
+// isOnSale is linje 14 fjerner produkter, der er udsolgt
+
 let listContainer = document.querySelector(".listcontainer");
-fetch(`https://kea-alt-del.dk/t7/api/products/`)
+const mycategory = new URLSearchParams(window.location.search).get("category");
+
+fetch(`https://kea-alt-del.dk/t7/api/products/?category=${mycategory}`)
   .then((response) => response.json())
   .then(showList);
 
@@ -7,15 +11,19 @@ function showList(data) {
   const markup = data
     .map(
       (product) =>
-        `<article>
+        `<article class=" ${product.soldout && "isOnSale"}"  >
       <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="" />
       <h3>${product.productdisplayname}</h3>
       <h4>${product.articletype} &#124; ${product.brandname}</h4>
       <div>
-        <h5>DKK ${product.price},-</h5>
-        <p>${product.discount}</p>
+        <h5 class="${product.discount && "overWrite"}">${product.price},-</h5>
+        
+        ${product.discount > 0 ? `<span class="SaleLabel isOnSale">-${product.discount}%</span>` : ""}
+        ${product.discount > 0 ? `<h5>Now: ${product.price - product.discount},-</h5>` : ""}
+        
+        
       </div>
-      <a href="produkt.html">Read more</a>
+      <a href="produkt.html?id=${product.id}">Read more</a>
    </article>`
     )
     .join("");
@@ -24,3 +32,5 @@ function showList(data) {
 
   listContainer.innerHTML = markup;
 }
+
+document.querySelector(".listcontainer").innerHTML = mycategory;

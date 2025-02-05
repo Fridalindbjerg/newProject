@@ -1,5 +1,6 @@
-let productId = 1163;
+const productId = new URLSearchParams(window.location.search).get("id");
 let productContainer = document.querySelector(".productcon");
+
 fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
   .then((response) => response.json())
   .then((data) => {
@@ -14,8 +15,10 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
           <h5>Inventory number</h5>
           <p>${data.id}</p>
           <div>
-            <h5>${data.price},- DKK</h5>
-            <p>${data.discount}</p>
+          <h5 class="${data.discount && "overWrite"}">${data.price},-</h5>
+          ${data.discount > 0 ? `<span class="SaleLabel isOnSale">-${data.discount}%</span>` : ""}
+          ${data.discount > 0 ? `<h5>Now: ${data.price - data.discount},-</h5>` : ""}
+            <p class="${data.discount && "isOnSale"}>${data.discount}</p>
           </div>
         </div>
         <form action="/submit" method="post">
